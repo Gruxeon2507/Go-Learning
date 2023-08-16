@@ -25,6 +25,9 @@ func formHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	fmt.Fprint(w, "POST request successful")
 	name := r.FormValue("name")
+	address := r.FormValue("address")
+	fmt.Fprint(w, "Name = %s\n", name)
+	fmt.Fprint(w, "Address = %s\n", address)
 }
 func main() {
 	fileServer := http.FileServer(http.Dir("./static"))
