@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 )
 
@@ -29,15 +28,28 @@ func formHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Name = %s\n", name)
 	fmt.Fprint(w, "Address = %s\n", address)
 }
-func main() {
-	fileServer := http.FileServer(http.Dir("./static"))
-	http.Handle("/", fileServer)
-	http.HandleFunc("/form", formHandler)
-	http.HandleFunc("/hello", helloHandler)
+func number() int {
+	return 2
+}
 
-	fmt.Printf("Starting serer at port 8080\n")
-	if err := http.ListenAndServe(":8080", nil); err != nil {
-		log.Fatal(err)
+type test1 struct {
+	number int
+}
+
+func (n test1) testNum() int {
+	n.number = 2
+	return n.number
+}
+func main() {
+	temp := test1{
+		number: 1,
+	}
+	for i = temp.testNum(); i < 5; i++ {
+		fmt.Println(i)
+	}
+	a := func() {
+		fmt.Println("huhu")
 	}
 
+	a()
 }
