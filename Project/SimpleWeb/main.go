@@ -35,6 +35,7 @@ func main() {
 	http.HandleFunc("/form", formHandler)
 	http.HandleFunc("/hello", helloHandler)
 
+	http.ListenAndServe(":8080", nil)
 	fmt.Printf("Starting serer at port 8080\n")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
