@@ -11,7 +11,6 @@ var (
 	actorNickName string = "Duckm"
 	i             int    = 42
 )
-
 func learn() {
 	fmt.Println(i)
 	//shadowing: bien trong scope dc khai bao cung ten se dc uu tien
@@ -43,3 +42,5 @@ func learn() {
 	fmt.Printf("%v, %T\n", convertString, convertString)
 
 }
+
+
